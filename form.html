@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="form.html">Formulario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link logged-in" href="#" data-bs-toggle="modal" data-bs-target="#LogInModal">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link logged-out" href="#" id="logout">LogOut</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Modal Login -->
+    <div class="modal fade" id="LogInModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form" action="">
+                        <div class="form-group">
+                            <input type="text" id="login-email" class="form-control" placeholder="email" required>
+                            <span id="email-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="login-password" class="form-control" placeholder="password"
+                                required>
+                            <span id="password-error"></span>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form name="form1" class="form1" onsubmit="validateForm(name)">  <!-- action="/pasarALaSig.html" method="post"> -->
+        <section class="intro">
+        <legend>Intro:</legend>
+            <label for="cname">Company name:</label><br>
+            <input type="text" id="cname" required><br>
+            <label for="cmail">Company email:</label><br>
+            <input type="email" id="cmail" name="cmail" required><br>
+                
+            <label for="a">First Question</label><br>
+                <input type="radio" id="A" name="a" value="A" required>
+                <label for="a">Si</label><br>
+                <input type="radio" id="B" name="a" value="B">
+                <label for="a">No</label><br>
+            <div id="dos">
+                <label for="b">Second Question</label><br>
+                <input type="radio" id="A" name="b" value="A" required>
+                <label for="b">A</label><br>
+                <input type="radio" id="B" name="b" value="B">
+                <label for="b">B</label><br>
+            </div>
+        <button class="form-bt" onclick="validateForm(name)">Next</button>
+    </section>    
+    <section class="form2">
+    <legend>ECONÓMICO</legend>
+        <label for="a">¿La empresa tiene identificado cuál está siendo su contribución a los ODS ( Objetivos de Desarrollo Sostenible)?
+        </label><br>
+            <input type="radio" id="A" name="a" value="A" required>
+            <label for="a">Si</label><br>
+            <input type="radio" id="B" name="a" value="B" required>
+            <label for="a">No</label><br>
+        <div id="dos">
+            <label for="b">Forth Question</label><br>
+            <input type="radio" id="A" name="b" value="A" required>
+            <label for="b">Si</label><br>
+            <input type="radio" id="B" name="b" value="B" required>
+            <label for="b">No</label><br>
+        </div>
+        <button class="form-bt" onsubmit="validateForm(name)">Next</button>
+    </section>
+      </form>
+
+    <!-- <form name="form2" class="form2" onsubmit="validateForm(name)">   action="/pasarALaSig.html" method="post"> 
+        <legend>Second:</legend>
+        <label for="a">Third Question</label><br>
+            <input type="radio" id="A" name="a" value="A" required>
+            <label for="a">Si</label><br>
+            <input type="radio" id="B" name="a" value="B">
+            <label for="a">No</label><br>
+        <div id="dos">
+            <label for="b">Forth Question</label><br>
+            <input type="radio" id="A" name="b" value="A" required>
+            <label for="b">Si</label><br>
+            <input type="radio" id="B" name="b" value="B">
+            <label for="b">No</label><br>
+        </div>
+    <input type="submit" value="Next">
+  </form>-->
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
+    <script type="module" src="./main.js"></script>
+    <script src="./form.js"></script>
+    <script type="module" src="./logout.js"></script>
+</body>
+</html>
