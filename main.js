@@ -1,12 +1,12 @@
+import { auth } from './firebase.js';
+import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js';
+import { loginCheck } from './loginCheck.js'
+
+const logout = document.querySelector('#logout')
+const login = document.querySelector('#login-form')
 
 let emailError = document.getElementById('email-error');
 let passwordError = document.getElementById('password-error');
-
-import { auth } from './firebase.js';
-
-import { signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js';
-import { loginCheck } from './loginCheck.js';
-const login = document.querySelector('#login-form')
 
 login.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -37,4 +37,8 @@ login.addEventListener('submit', async (e) => {
 
 onAuthStateChanged(auth, async (user) => {
   loginCheck(user)
+})
+
+logout.addEventListener('click', async () => {
+  await signOut(auth)
 })

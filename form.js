@@ -11,24 +11,35 @@ let scoreEconomico = 0;
 let totalQEconomico = 100;
 let scoreSocial = 0;
 let totalQSocial = 100;
+let scoreGenero = 0;
 
 
 function validateForm(name) {
     event.preventDefault();
-    for(let i = 0; i<2;i++){
-        let x = document.forms[name][intToChar(i)];
-        //console.log(x.value);
-        switch(x.value){
-            case 'A': score = score + 1; break;
-            case 'B': break;
-            default: break;
+    console.log(document.forms[name])
+    if(name != "form1"){
+        for(let i = 0; i<10;i++){
+            let x = document.forms[name][intToChar(i)];
+            console.log(x);
+            switch(x.value){
+                case 'A': score = score + 1; scoreAmbiental++; break;
+                case 'E': score = score + 1; scoreEconomico++; break;
+                case 'G': score = score + 1; scoreGenero++; break;
+                case 'S': score = score + 1; scoreSocial++; break;
+                case 'B': break;
+                default: break;
+            }
         }
     }
     console.log(score);
+    console.log(scoreAmbiental);
+    console.log(scoreEconomico);
+    console.log(scoreGenero);
+    console.log(scoreSocial);
     formulario[formCount].style.display = "none"
     if(formCount == formulario.length-1){
         formulario[formCount].style.display = "none"
-        alert("Congrats")
+        //llamar a un funcion para mostrar el cuadro y el score
     }else{
         formCount++;
         formulario[formCount].style.display = "block"

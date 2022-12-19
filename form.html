@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +13,7 @@
     <script src="./form.js"></script>
     <script src="./logout.js" type="module"></script>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
@@ -26,7 +28,8 @@
                         <a class="nav-link" href="form.html">Formulario</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link logged-in" href="#" data-bs-toggle="modal" data-bs-target="#LogInModal">Login</a>
+                        <a class="nav-link logged-in" href="#" data-bs-toggle="modal"
+                            data-bs-target="#LogInModal">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link logged-out" href="#" id="logout">LogOut</a>
@@ -64,44 +67,120 @@
         </div>
     </div>
 
-    <form name="form1" class="form1" onsubmit="validateForm(name)">  <!-- action="/pasarALaSig.html" method="post"> -->
+    <form name="form1" class="form1" onsubmit="validateForm(name)"> <!-- action="/pasarALaSig.html" method="post"> -->
         <section class="intro">
-        <legend>Intro:</legend>
+            <legend>Intro:</legend>
             <label for="cname">Company name:</label><br>
-            <input type="text" id="cname" required><br>
+            <input type="text" id="cname" ><br>
             <label for="cmail">Company email:</label><br>
-            <input type="email" id="cmail" name="cmail" required><br>
-                
+            <input type="email" id="cmail" name="cmail" ><br>
+
             <label for="a">First Question</label><br>
-                <input type="radio" id="A" name="a" value="A" required>
-                <label for="a">Si</label><br>
-                <input type="radio" id="B" name="a" value="B">
-                <label for="a">No</label><br>
-            <div id="dos">
+            <input type="radio" name="a" value="A" >
+            <label for="a">Si</label><br>
+            <input type="radio" name="a" value="B">
+            <label for="a">No</label><br>
+            <div >
                 <label for="b">Second Question</label><br>
-                <input type="radio" id="A" name="b" value="A" required>
+                <input type="radio" name="b" value="A" >
                 <label for="b">A</label><br>
-                <input type="radio" id="B" name="b" value="B">
+                <input type="radio" name="b" value="B">
                 <label for="b">B</label><br>
             </div>
-        <input type="submit" value="Next">
-        </section>    
+            <input type="submit" value="Next">
+        </section>
     </form>
 
     <form name="form2" class="form2" onsubmit="validateForm(name)">
-    <legend>ECONÓMICO</legend>
-        <label for="a">¿La empresa tiene identificado cuál está siendo su contribución a los ODS ( Objetivos de Desarrollo Sostenible )?
+        <legend>ECONÓMICO</legend>
+        <div >
+        <label for="a">¿La empresa tiene identificado cuál está siendo su contribución a los ODS ( Objetivos de
+            Desarrollo Sostenible )?
         </label><br>
-            <input type="radio" id="A" name="a" value="A" required>
-            <label for="a">Si</label><br>
-            <input type="radio" id="B" name="a" value="B" required>
-            <label for="a">No</label><br>
-        <div id="dos">
-            <label for="b">Forth Question</label><br>
-            <input type="radio" id="A" name="b" value="A" required>
+        <input type="radio" name="a" value="E" required>
+        <label for="a">Si</label><br>
+        <input type="radio" name="a" value="B" required>
+        <label for="a">No</label><br>
+        </div>
+        <div >
+            <label for="b">¿Su empresa realiza y comunica su reporte de sustentabilidad anualmente? </label><br>
+            <input type="radio" name="b" value="E" required>
             <label for="b">Si</label><br>
-            <input type="radio" id="B" name="b" value="B" required>
+            <input type="radio" name="b" value="B" required>
             <label for="b">No</label><br>
+        </div>
+        <div >
+            <label for="c">¿La empresa cuenta con un propósito de beneficio social y ambiental en su estatuto o contrato
+                social, o una declaración de Misión y Visión corporativa establecida por escrito que incluya un
+                compromiso general de sostenibilidad social y/o ambiental (por ejemplo, la conservación del
+                medioambiente)?
+            </label><br>
+            <input type="radio" name="c" value="E" required>
+            <label for="c">Si</label><br>
+            <input type="radio" name="c" value="B" required>
+            <label for="c">No</label><br>
+        </div>
+        <div>
+            <label for="d">¿La empresa cuenta con un Código de Ética o Conducta?
+            </label><br>
+            <input type="radio"  name="d" value="E" required>
+            <label for="d">Si</label><br>
+            <input type="radio"  name="d" value="B" required>
+            <label for="d">No</label><br>
+        </div>
+        <div >
+            <label for="e">¿La estructura de gobernanza de la empresa promueve de forma efectiva la adopción de
+                decisiones inclusivas, participativas y representativas?
+            </label><br>
+            <input type="radio" name="e" value="E" required>
+            <label for="e">Si</label><br>
+            <input type="radio" name="e" value="B" required>
+            <label for="e">No</label><br>
+        </div>
+        <div >
+            <label for="f">¿La empresa tiene una política clara en lo que respecta a regalos que reciben los empleados
+                por parte de los proveedores y/o clientes?
+            </label><br>
+            <input type="radio" name="f" value="E" required>
+            <label for="f">Si</label><br>
+            <input type="radio" name="f" value="B" required>
+            <label for="f">No</label><br>
+        </div>
+        <div >
+            <label for="g">¿La empresa ha implementado sistemas de denuncia de actos de corrupción, como por ejemplo
+                políticas de denuncia formalizada por escrito con protección de confidencialidad o mecanismos anónimos
+                para denunciar sospechas y agravios?
+            </label><br>
+            <input type="radio"  name="g" value="E" required>
+            <label for="g">Si</label><br>
+            <input type="radio"  name="g" value="B" required>
+            <label for="g">No</label><br>
+        </div>
+        <div >
+            <label for="h">¿La empresa integra el desempeño social y ambiental en la toma de decisiones?
+            </label><br>
+            <input type="radio"  name="h" value="E" required>
+            <label for="h">Si</label><br>
+            <input type="radio"  name="h" value="B" required>
+            <label for="h">No</label><br>
+        </div>
+        <div >
+            <label for="i">¿Posee políticas de comunicación y diálogo asertivas y amigables con sus empleados que
+                permitan diagnosticar necesidades y dificultades?
+            </label><br>
+            <input type="radio"  name="i" value="E" required>
+            <label for="i">Si</label><br>
+            <input type="radio"  name="i" value="B" required>
+            <label for="i">No</label><br>
+        </div>
+        <div >
+            <label for="j">¿La organización implementa planes de beneficios o prestaciones en sus empleados que afiancen
+                la pertenencia?
+            </label><br>
+            <input type="radio"  name="j" value="E" required>
+            <label for="j">Si</label><br>
+            <input type="radio"  name="j" value="B" required>
+            <label for="j">No</label><br>
         </div>
         <input type="submit" value="Next">
     </form>
@@ -109,15 +188,15 @@
     <!-- <form name="form2" class="form2" onsubmit="validateForm(name)">   action="/pasarALaSig.html" method="post"> 
         <legend>Second:</legend>
         <label for="a">Third Question</label><br>
-            <input type="radio" id="A" name="a" value="A" required>
+            <input type="radio"  name="a" value="A" required>
             <label for="a">Si</label><br>
-            <input type="radio" id="B" name="a" value="B">
+            <input type="radio"  name="a" value="B">
             <label for="a">No</label><br>
-        <div id="dos">
+        <div >
             <label for="b">Forth Question</label><br>
-            <input type="radio" id="A" name="b" value="A" required>
+            <input type="radio"  name="b" value="A" required>
             <label for="b">Si</label><br>
-            <input type="radio" id="B" name="b" value="B">
+            <input type="radio"  name="b" value="B">
             <label for="b">No</label><br>
         </div>
     <input type="submit" value="Next">
@@ -139,4 +218,5 @@
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
         crossorigin="anonymous"></script>
 </body>
+
 </html>
