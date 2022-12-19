@@ -8,7 +8,9 @@
     visibility:hidden;
 }
 
-
+form:not(.form1,.formularioLogIn) {
+    transition:0;
+    display:none;}
 
 .form-bt{
     width: 50px;
