@@ -1,11 +1,8 @@
-console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
 let emailError = document.getElementById('email-error');
 let passwordError = document.getElementById('password-error');
 
 import { auth } from './firebase.js';
-import './logout.js'
-import './loginCheck.js'
-
 
 import { signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js';
 import { loginCheck } from './loginCheck.js';
@@ -18,7 +15,6 @@ login.addEventListener('submit', async (e) => {
   const email = document.querySelector('#login-email').value
   const password = document.querySelector('#login-password').value
 
-  //console.log(email, password);
 
   try {
     const userLoginCredential = await signInWithEmailAndPassword(auth,email, password)
@@ -40,6 +36,5 @@ login.addEventListener('submit', async (e) => {
 })
 
 onAuthStateChanged(auth, async (user) => {
-  console.log("A");
   loginCheck(user)
 })

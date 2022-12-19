@@ -1,15 +1,9 @@
-let numbers = []
-for(let i = 0; i<2;i++){
-    numbers.push(i);
-}
-
 let formulario = document.getElementsByTagName("form")
 let section = document.getElementsByTagName("section")
-let sectionMax = 0
 
-let sectionCount = 0;
+let formCount = 1;
 
-let scoreTotal = 0;
+let score = 0;
 let totalQ = 100;
 let scoreAmbiental = 0;
 let totalQAmbiental = 100;
@@ -30,14 +24,14 @@ function validateForm(name) {
             default: break;
         }
     }
-    console.log(scoreTotal);
-    section[sectionCount].style.display = "none"
-    if(sectionCount == section.length-1){
-        section[sectionCount].style.display = "none"
+    console.log(score);
+    formulario[formCount].style.display = "none"
+    if(formCount == formulario.length-1){
+        formulario[formCount].style.display = "none"
         alert("Congrats")
     }else{
-        sectionCount++;
-        section[sectionCount].style.display = "block"
+        formCount++;
+        formulario[formCount].style.display = "block"
     }
     
   }

@@ -2,10 +2,11 @@ const login = document.querySelectorAll('.logged-in')
 const logout = document.querySelectorAll('.logged-out')
 const form = document.querySelector('.form1')
 
-console.log(login);
-console.log(logout);
+//console.log(login);
+//console.log(logout);
 
 export const loginCheck = user => {
+    console.log(user);
     if(user){
         login.forEach(link => link.style.display = 'none')
         logout.forEach(link => link.style.display = 'block')
