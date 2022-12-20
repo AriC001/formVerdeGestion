@@ -1,0 +1,126 @@
+.content {
+  display: flex;
+}
+
+.mask {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  width: 12.5rem;
+  height: 6.25rem;
+  margin: 1.25rem;
+}
+
+.semi-circle {
+  position: relative;
+  display: block;
+  width: 12.5rem;
+  height: 6.25rem;
+  background: linear-gradient(to right, #c0392b 0%, #f1c40f 50%, #1abc9c 100%);
+  border-radius: 50% 50% 50% 50%/100% 100% 0% 0%;
+}
+.semi-circle::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  z-index: 2;
+  display: block;
+  width: 8.75rem;
+  height: 4.375rem;
+  margin-left: -4.375rem;
+  background: #fff;
+  border-radius: 50% 50% 50% 50%/100% 100% 0% 0%;
+}
+
+
+/* Primer Slide */
+.semi-circle--mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12.5rem;
+  height: 12.5rem;
+  background: transparent;
+  transform: rotate(180deg) translate3d(0, 0, 0);
+  transform-origin: center center;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.semi-circle--mask::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0%;
+  z-index: 2;
+  display: block;
+  width: 12.625rem;
+  height: 6.375rem;
+  margin: -1px 0 0 -1px;
+  background: #f2f2f2;
+  border-radius: 50% 50% 50% 50%/100% 100% 0% 0%;
+}
+
+.gauge--2 .semi-circle--mask {
+  transform: rotate(20deg) translate3d(0, 0, 0);
+}
+
+#pos-total {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+} 
+
+.item {
+  width: 30px;
+  height: 3rem;
+  margin: 20px;
+  font-size: 4rem;
+  position: absolute;
+}
+
+i {
+  color: black;
+  position: absolute;
+  top: 35px;
+  z-index: 5;
+}
+
+.arrow1 {
+  transform: rotate(0deg);
+  transform-origin: bottom;
+  animation: slide3 3s ease-in-out infinite;
+}
+.arrow2{
+  transform: rotate(-90deg);
+  transform-origin: bottom;
+  animation: slide3 3s ease-in-out infinite;
+}
+.arrow3 {
+  transform: rotate(90deg);
+  transform-origin: bottom;
+  animation: slide3 3s ease-in-out infinite;
+}
+.arrow4 {
+  transform: rotate(-45deg);
+  transform-origin: bottom;
+  animation: slide3 3s ease-in-out infinite;
+}
+.arrow5 {
+  transform: rotate(45deg);
+  transform-origin: bottom;
+  animation: slide3 3s ease-in-out infinite;
+}
+
+
+ /* @keyframes slide3 {
+  0%,
+  100% {
+    transform: rotate(-90deg);
+  }
+
+   50% {
+    transform: rotate(90deg);
+  }
+} */

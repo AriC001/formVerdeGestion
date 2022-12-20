@@ -40,6 +40,7 @@ function validateForm(name) {
     if(formCount == formulario.length-1){
         formulario[formCount].style.display = "none"
         //llamar a un funcion para mostrar el cuadro y el score
+        window.location.href = "http://127.0.0.1:5500/results.html";
     }else{
         formCount++;
         formulario[formCount].style.display = "block"
