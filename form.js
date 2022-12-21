@@ -6,21 +6,24 @@ let formCount = 1;
 let score = 0;
 let totalQ = 100;
 let scoreAmbiental = 0;
-let totalQAmbiental = 100;
+let totalQAmbiental = 29;
 let scoreEconomico = 0;
-let totalQEconomico = 100;
+let totalQEconomico = 28;
 let scoreSocial = 0;
-let totalQSocial = 100;
+let totalQSocial = 20;
 let scoreGenero = 0;
+let totalQgenero = 23;
+let scores2 = []
+let a;
 
 
 function validateForm(name) {
     event.preventDefault();
-    console.log(document.forms[name])
+    // console.log(document.forms[name])
     if(name != "form1"){
         for(let i = 0; i<10;i++){
             let x = document.forms[name][intToChar(i)];
-            console.log(x);
+            // console.log(x);
             switch(x.value){
                 case 'A': score = score + 1; scoreAmbiental++; break;
                 case 'E': score = score + 1; scoreEconomico++; break;
@@ -39,13 +42,14 @@ function validateForm(name) {
     formulario[formCount].style.display = "none"
     if(formCount == formulario.length-1){
         formulario[formCount].style.display = "none"
-        //llamar a un funcion para mostrar el cuadro y el score
-        window.location.href = "http://127.0.0.1:5500/results.html";
+        // llamar a un funcion para mostrar el cuadro y el score
+        // console.log();
+        changes()
+        document.getElementById('resultados').style.display='block';
     }else{
         formCount++;
         formulario[formCount].style.display = "block"
     }
-    
   }
 
   function intToChar(int) {
@@ -55,3 +59,35 @@ function validateForm(name) {
   
     return String.fromCharCode(code + int);
   }
+ 
+
+
+//  let html = 'http://'+location.host+"/results.html"
+//  let html2 = 'https://'+location.host+"/results.html"
+ function changes(){
+    document.getElementById('scoreTotal').innerHTML= score;
+    document.getElementById('scoreAmb').innerHTML= scoreAmbiental;
+    document.getElementById('scoreSoc').innerHTML= scoreSocial;
+    document.getElementById('scoreEco').innerHTML= scoreEconomico;
+    document.getElementById('scoreGen').innerHTML= scoreGenero;
+
+
+    const arrowTotal = document.getElementById('arrow1')
+    const arrowAmb = document.getElementById('arrow2')
+    const arrowEco = document.getElementById('arrow3')
+    const arrowSoc = document.getElementById('arrow4')
+    const arrowGen = document.getElementById('arrow5')
+
+    let deg = "deg"
+
+    arrowTotal.style.rotate = ((score*180)/100)+deg;
+    arrowAmb.style.rotate = ((scoreAmbiental*180)/29)+deg;
+    arrowEco.style.rotate = ((scoreEconomico*180)/28)+deg
+    arrowSoc.style.rotate = ((scoreSocial*180)/20)+deg
+    arrowGen.style.rotate = ((scoreGenero*180)/23)+deg
+}
+    
+   
+
+
+
