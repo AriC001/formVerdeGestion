@@ -1,9 +1,11 @@
-import { auth } from './firebase.js';
+import { auth,db } from './firebase.js';
 import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js';
+import { addDoc, collection } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js'; 
 import { loginCheck } from './loginCheck.js'
 
 const logout = document.querySelector('#logout')
 const login = document.querySelector('#login-form')
+const scoreChange = document.querySelector('#scoreTotal')
 
 let emailError = document.getElementById('email-error');
 let passwordError = document.getElementById('password-error');
@@ -42,3 +44,47 @@ onAuthStateChanged(auth, async (user) => {
 logout.addEventListener('click', async () => {
   await signOut(auth)
 })
+
+// const observer = new MutationObserver(() => {
+//   console.log('callback that runs when observer is triggered');
+// });
+
+var mutationObserver = new MutationObserver(function(mutations) {
+  mutations.forEach(function(mutation) {
+    sendb();
+  });
+});
+
+mutationObserver.observe(document.documentElement.querySelector('#scoreTotal'),{attributes: true,
+characterData: true,
+childList: true,
+subtree: true,
+attributeOldValue: true,
+characterDataOldValue: true
+})
+
+
+async function sendb(){
+  console.log("AA");
+  var storedRespuestas = JSON.parse(localStorage.getItem("respuestas"));
+  console.log(storedRespuestas);
+  try {
+    const docRef = await addDoc(collection(db, "ResultadosFormularios"), {storedRespuestas});
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+}
+
+Email.send({
+  Host : "smtp.elasticemail.com",
+  Username : "username",
+  Password : "password",
+  To : 'them@website.com',
+  From : "you@isp.com",
+  Subject : "This is the subject",
+  Body : "And this is the body"
+}).then(
+message => alert(message)
+);
+

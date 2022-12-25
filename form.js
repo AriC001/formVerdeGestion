@@ -14,39 +14,58 @@ let totalQSocial = 20;
 let scoreGenero = 0;
 let totalQgenero = 23;
 let scores2 = []
-let a;
+let results;
+let j = 0;
+let preguntas = []
 
 
 function validateForm(name) {
     event.preventDefault();
-    // console.log(document.forms[name])
+    // // console.log(document.forms[name])
+    // document.forms[name].forEach(('div',0) => {
+    //     console.log( document.getElementsByTagName('lable').innerHTML)
+    // });
+    let labels = document.getElementsByClassName('label-form')
     if(name != "form1"){
         for(let i = 0; i<10;i++){
-            let x = document.forms[name][intToChar(i)];
-            // console.log(x);
-            switch(x.value){
-                case 'A': score = score + 1; scoreAmbiental++; break;
-                case 'E': score = score + 1; scoreEconomico++; break;
-                case 'G': score = score + 1; scoreGenero++; break;
-                case 'S': score = score + 1; scoreSocial++; break;
-                case 'B': break;
-                default: break;
+            if(document.forms[name][intToChar(i)] != undefined){
+                let x = document.forms[name][intToChar(i)];
+                // console.log(x);
+                switch(x.value){
+                    case 'A': score = score + 1; scoreAmbiental++; preguntas.push(wrap(labels[j],"Si"));j++; break;
+                    case 'E': score = score + 1; scoreEconomico++;preguntas.push(wrap(labels[j],"Si"));j++; break;
+                    case 'G': score = score + 1; scoreGenero++;preguntas.push(wrap(labels[j],"Si"));j++; break;
+                    case 'S': score = score + 1; scoreSocial++;preguntas.push(wrap(labels[j],"Si"));j++; break;
+                    case 'B': preguntas.push(wrap(labels[j],"No")); j++; break; 
+                    default: break;
+                }
             }
         }
+    }else{
+        let x = document.getElementsByClassName('company')
+        for(let i =0;i<x.length;i++){
+            preguntas.push(wrap(labels[j],x[i].value));
+            j++;
+        }
+
     }
-    console.log(score);
-    console.log(scoreAmbiental);
-    console.log(scoreEconomico);
-    console.log(scoreGenero);
-    console.log(scoreSocial);
+    // console.log(score);
+    // console.log(scoreAmbiental);
+    // console.log(scoreEconomico);
+    // console.log(scoreGenero);
+    // console.log(scoreSocial);
     formulario[formCount].style.display = "none"
-    if(formCount == formulario.length-1){
+    if(formCount == formulario.length-2){
         formulario[formCount].style.display = "none"
+        preguntas.push(scores(score,scoreAmbiental,scoreEconomico,scoreGenero,scoreSocial))
         // llamar a un funcion para mostrar el cuadro y el score
         // console.log();
+        console.log(JSON.stringify(preguntas))
+        localStorage.setItem("respuestas", JSON.stringify(preguntas));
         changes()
         document.getElementById('resultados').style.display='block';
     }else{
+
         formCount++;
         formulario[formCount].style.display = "block"
     }
@@ -60,6 +79,25 @@ function validateForm(name) {
     return String.fromCharCode(code + int);
   }
  
+  function wrap(element,opcion) {
+    let obj = {
+        pregunta: element.innerHTML,
+        opc: opcion,
+    }
+    return obj;
+    }
+
+  function scores(score,scoreAmbiental,scoreEconomico,scoreGenero,scoreSocial){
+    let obj = {
+        Total: score,
+        Ambiental: scoreAmbiental,
+        Economico: scoreEconomico,
+        Social: scoreSocial,
+        Genero: scoreGenero,
+    }
+    return obj;
+  }
+//  }
 
 
 //  let html = 'http://'+location.host+"/results.html"
