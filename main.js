@@ -1,7 +1,7 @@
 import { auth,db } from './firebase.js';
-import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js';
-import { addDoc, collection } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js'; 
-import { loginCheck } from './loginCheck.js'
+import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+import { addDoc, collection } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'; 
+import { loginCheck } from './loginCheck.js';
 
 const logout = document.querySelector('#logout')
 const login = document.querySelector('#login-form')
@@ -65,9 +65,7 @@ characterDataOldValue: true
 
 
 async function sendb(){
-  console.log("AA");
   var storedRespuestas = JSON.parse(localStorage.getItem("respuestas"));
-  console.log(storedRespuestas);
   try {
     const docRef = await addDoc(collection(db, "ResultadosFormularios"), {storedRespuestas});
     console.log("Document written with ID: ", docRef.id);
@@ -76,15 +74,5 @@ async function sendb(){
   }
 }
 
-Email.send({
-  Host : "smtp.elasticemail.com",
-  Username : "username",
-  Password : "password",
-  To : 'them@website.com',
-  From : "you@isp.com",
-  Subject : "This is the subject",
-  Body : "And this is the body"
-}).then(
-message => alert(message)
-);
+
 

@@ -58,14 +58,31 @@ function validateForm(name) {
     if(formCount == formulario.length-2){
         formulario[formCount].style.display = "none"
         preguntas.push(scores(score,scoreAmbiental,scoreEconomico,scoreGenero,scoreSocial))
-        // llamar a un funcion para mostrar el cuadro y el score
-        // console.log();
-        console.log(JSON.stringify(preguntas))
         localStorage.setItem("respuestas", JSON.stringify(preguntas));
         changes()
         document.getElementById('resultados').style.display='block';
-    }else{
 
+        let preg = "    ";
+        for(let i = 0; i<preguntas.length; i++){
+            if(preguntas[i].opc != "Si"){
+                preg += preguntas[i].pregunta + " " + preguntas[i].opc + "<br>"
+                if(i == preguntas.length-1){
+                    preg += "Total: " + preguntas[i].Total + "<br>" + "Economico: " + preguntas[i].Economico + "<br>" + "Ambiental: " + preguntas[i].Ambiental + "<br>" + "Social: " + preguntas[i].Social + "<br>" + "Genero: " + preguntas[i].Genero + "<br>"
+                }
+            }
+        }
+
+        Email.send({
+            SecureToken : "d5e5614a-c92d-4997-8b9a-6e3e522acfcd",
+            To : 'aricohen98@gmail.com',
+            From : "formulario@verdegestion.com",
+            Subject : "This is the subject",
+            Body : preg,
+          }).then(
+          message => console.log(message)
+          );
+
+    }else{
         formCount++;
         formulario[formCount].style.display = "block"
     }
