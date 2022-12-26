@@ -55,7 +55,7 @@ function validateForm(name) {
     // console.log(scoreGenero);
     // console.log(scoreSocial);
     formulario[formCount].style.display = "none"
-    if(formCount == formulario.length-2){
+    if(formCount == formulario.length-1){
         formulario[formCount].style.display = "none"
         preguntas.push(scores(score,scoreAmbiental,scoreEconomico,scoreGenero,scoreSocial))
         localStorage.setItem("respuestas", JSON.stringify(preguntas));
@@ -85,6 +85,7 @@ function validateForm(name) {
     }else{
         formCount++;
         formulario[formCount].style.display = "block"
+        window.scrollTo(0, 0);
     }
   }
 
