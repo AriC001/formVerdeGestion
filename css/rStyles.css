@@ -1,3 +1,9 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 #titulo{
   text-align: center;
   background-color: beige;
@@ -16,6 +22,71 @@
   margin-left: 10rem;
   margin-right: 10rem;
   margin-top: 3%;
+}
+
+.radio-form {
+  font-family: system-ui, sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  
+  /* line-height: 1.1; */
+  /* display: grid; */
+  /* grid-template-columns: 1em auto; */
+  gap: 0.5em;
+}
+
+input[type="radio"] {
+   /* Add if not using autoprefixer */
+   -webkit-appearance: none;
+   /* Remove most all native input styles */
+   appearance: none;
+   /* For iOS < 15 */
+   background-color: var(--form-background);
+   /* Not removed via appearance */
+   margin: 0;
+  margin-top: 1rem;
+   font: inherit;
+   color: currentColor;
+   width: 1.15em;
+   height: 1.15em;
+   border: 0.15em solid currentColor;
+   border-radius: 50%;
+   transform: translateY(-0.075em);
+ 
+   display: inline-grid;
+   place-content: center;
+}
+input[type="radio"]::before {
+  content: "";
+  width: 0.60em;
+  height: 0.60em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  /* Windows High Contrast Mode */
+  background-color: CanvasText;
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+/* .label-input{
+  
+} */
+
+.question{
+  margin-bottom: 2rem;
+  background-color:rgba(237, 247, 166, 0.534);
+  /* padding-left: 1rem; */
+  padding: 1rem;
+}
+
+legend span{
+  padding: 0.3rem;
+  background-color: rgba(179, 255, 129, 0.555);
+
 }
 
 #pun-total{

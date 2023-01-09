@@ -1,7 +1,19 @@
+.navbar{
+    background-color: blueviolet;
+}
+
+.form-group{
+    margin-bottom: 1rem;
+}
+
+#email-error , #password-error{
+    color: red;
+}
+
 form:not(.form1,.formularioLogIn){
     transition:0;
     display:none;
-    background-color: rgba(127, 255, 212, 0.473);
+    background-color: white;
     margin: auto;
     width: 65%;
     padding: 3%;
@@ -18,7 +30,7 @@ form:not(.form1,.formularioLogIn){
 .form1{
     transition:0;
     visibility:hidden;
-    background-color: rgba(127, 255, 212, 0.473);
+    background-color: white;
     margin: auto;
     width: 65%;
     padding: 2%;
@@ -41,5 +53,6 @@ form:not(.form1,.formularioLogIn) {
     width: 50px;
     height: 50px;
 }
+
 
 
