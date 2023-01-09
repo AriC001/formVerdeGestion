@@ -8,6 +8,16 @@
   margin-top: 3%;
 }
 
+#logged{
+  text-align: center;
+  /* background-color: beige; */
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  margin-top: 3%;
+}
+
 #pun-total{
   text-align: center;
   background-color: rgb(230, 245, 220);
@@ -40,7 +50,7 @@
 }
 
 .parraf-last{
-  background-color: #dbffd8;
+  /* background-color: #dbffd8; */
   margin-top: 2%;
   margin-left: 15rem;
   margin-right: 15rem;

@@ -1,6 +1,6 @@
-import { auth,db } from './firebase.js';
+import { auth, datab } from './firebase.js';
 import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { addDoc, collection } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'; 
+import { addDoc, collection, doc, setDoc } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'; 
 import { loginCheck } from './loginCheck.js';
 
 const logout = document.querySelector('#logout')
@@ -20,6 +20,8 @@ login.addEventListener('submit', async (e) => {
 
   try {
     const userLoginCredential = await signInWithEmailAndPassword(auth,email, password)
+    localStorage.setItem("email", JSON.stringify(email));
+    console.log(email);
     const loginModal = document.querySelector('#LogInModal')
     const modal = bootstrap.Modal.getInstance(loginModal)
     modal.hide()
@@ -65,13 +67,20 @@ characterDataOldValue: true
 
 
 async function sendb(){
-  var storedRespuestas = JSON.parse(localStorage.getItem("respuestas"));
-  try {
-    const docRef = await addDoc(collection(db, "ResultadosFormularios"), {storedRespuestas});
-    console.log("Document written with ID: ", docRef.id);
-  } catch (e) {
-    console.error("Error adding document: ", e);
-  }
+  let storedRespuestas = JSON.parse(localStorage.getItem("respuestas"));
+  let email = JSON.parse(localStorage.getItem("email"));
+  // storedRespuestas = {storedRespuestas}
+  await addDoc(collection(datab, "respuestas"), {storedRespuestas});
+  // console.log("Document written with ID: ");
+  console.log(email);
+    // {"__name__":"/databases/(default)/documents/resp/respuesta","id":"respuesta","data":{"asd":"123"}}
+    // await setDoc(doc(datab, "respuesta", email), {storedRespuestas});
+    // const docRef = await addDoc(collection(db, '/databases/(default)/documents/resp/{respuesta}'),{storedRespuestas});
+    // console.log("Document written with ID: ", docRef.id);
+    // console.log("QQ");
+  // } catch (e) {
+  //   console.error("Error adding document: ", e);
+  // }
 }
 
 

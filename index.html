@@ -8,9 +8,15 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./main.js" type="module"></script>
     <script src="./form.js"></script>
     <script src="./logout.js" type="module"></script>
+    <link href="./css/rStyles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
@@ -22,13 +28,14 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="form.html">Formulario</a> <!-- Que solo esté formulario y que pida el login -->
+                        <a class="nav-link" href="index.html">Formulario</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link logged-in" href="#" data-bs-toggle="modal" data-bs-target="#LogInModal">Login</a>
+                        <a class="nav-link logged-in" href="#" data-bs-toggle="modal"
+                            data-bs-target="#LogInModal">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link logged-out" href="#">LogOut</a>
+                        <a class="nav-link logged-out" href="#" id="logout">LogOut</a>
                     </li>
                 </ul>
             </div>
@@ -45,7 +52,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="login-form" action="">
+                    <form id="login-form" action="" class="formularioLogIn">
                         <div class="form-group">
                             <input type="text" id="login-email" class="form-control" placeholder="email" required>
                             <span id="email-error"></span>
@@ -63,14 +70,964 @@
         </div>
     </div>
 
+    <h2 id="logged"></h2>
 
+    <form name="form1" class="form1" onsubmit="validateForm(name)">
+        <section class="intro">
+            <legend>Perfil de la Empresa:</legend>
+            <label class="label-form" for="cname">NOMBRE DE LA EMPRESA:</label><br>
+            <input class="company" type="text" id="cname" ><br>
+
+            <label class="label-form" for="cmail">DIRECCIÓN:</label><br>
+            <input class="company" type="text" id="cmail" name="cmail" ><br>
+
+            <label class="label-form" for="cname">TELEFONO FIJO:</label><br>
+            <input class="company" type="number" id="cname" ><br>
+
+            <label class="label-form" for="cmail">SITIO WEB</label><br>
+            <input class="company" type="text" id="cmail" name="cmail" ><br>
+
+            <label class="label-form" for="cmail">EMAIL:</label><br>
+            <input class="company" type="email" id="cmail" name="cmail" ><br>
+
+            <label class="label-form" for="cname">FECHA DE INICIO DE ACTIVIDAD:</label><br>
+            <input class="company" type="text" id="cname" ><br>
+
+            <label class="label-form" for="cname">RUBRO DE LA EMPRESA:</label><br>
+            <input class="company" type="text" id="cname" ><br>
+
+            <label class="label-form" for="cname">CANTIDAD DE EMPLEADOS:</label><br>
+            <input class="company" type="number" id="cname" ><br>
+
+            <legend>Persona de Contacto:</legend>
+            <label class="label-form" for="cname">NOMBRE:</label><br>
+            <input class="company" type="text" id="cname" ><br>
+            <label class="label-form" for="cname">CARGO:</label><br>
+            <input class="company" type="text" id="cname" ><br>
+            <label class="label-form" for="cname">TELEFONO MOVIL:</label><br>
+            <input class="company" type="number" id="cname" ><br>
+            <label class="label-form" for="cname">EMAIL:</label><br>
+            <input class="company" type="email" id="cname" ><br>
+
+            <input type="submit" value="Next">
+        </section>
+    </form>
+
+    <form name="form2" class="form2" onsubmit="validateForm(name)">
+        <legend>ECONÓMICO</legend>
+        <div >
+        <label class="label-form" for="a">¿La empresa tiene identificado cuál está siendo su contribución a los ODS ( Objetivos de
+            Desarrollo Sostenible )?
+        </label><br>
+        <input type="radio" name="a" value="E" required>
+        <label for="a">Si</label><br>
+        <input type="radio" name="a" value="B" required>
+        <label for="a">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="b">¿Su empresa realiza y comunica su reporte de sustentabilidad anualmente? </label><br>
+            <input type="radio" name="b" value="E" required>
+            <label for="b">Si</label><br>
+            <input type="radio" name="b" value="B" required>
+            <label for="b">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="c">¿La empresa cuenta con un propósito de beneficio social y ambiental en su estatuto o contrato
+                social, o una declaración de Misión y Visión corporativa establecida por escrito que incluya un
+                compromiso general de sostenibilidad social y/o ambiental (por ejemplo, la conservación del
+                medioambiente)?
+            </label><br>
+            <input type="radio" name="c" value="E" required>
+            <label for="c">Si</label><br>
+            <input type="radio" name="c" value="B" required>
+            <label for="c">No</label><br>
+        </div>
+        <div>
+            <label class="label-form" for="d">¿La empresa cuenta con un Código de Ética o Conducta?
+            </label><br>
+            <input type="radio"  name="d" value="E" required>
+            <label for="d">Si</label><br>
+            <input type="radio"  name="d" value="B" required>
+            <label for="d">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="e">¿La estructura de gobernanza de la empresa promueve de forma efectiva la adopción de
+                decisiones inclusivas, participativas y representativas?
+            </label><br>
+            <input type="radio" name="e" value="E" required>
+            <label for="e">Si</label><br>
+            <input type="radio" name="e" value="B" required>
+            <label for="e">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="f">¿La empresa tiene una política clara en lo que respecta a regalos que reciben los empleados
+                por parte de los proveedores y/o clientes?
+            </label><br>
+            <input type="radio" name="f" value="E" required>
+            <label for="f">Si</label><br>
+            <input type="radio" name="f" value="B" required>
+            <label for="f">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="g">¿La empresa ha implementado sistemas de denuncia de actos de corrupción, como por ejemplo
+                políticas de denuncia formalizada por escrito con protección de confidencialidad o mecanismos anónimos
+                para denunciar sospechas y agravios?
+            </label><br>
+            <input type="radio"  name="g" value="E" required>
+            <label for="g">Si</label><br>
+            <input type="radio"  name="g" value="B" required>
+            <label for="g">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="h">¿La empresa integra el desempeño social y ambiental en la toma de decisiones?
+            </label><br>
+            <input type="radio"  name="h" value="E" required>
+            <label for="h">Si</label><br>
+            <input type="radio"  name="h" value="B" required>
+            <label for="h">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="i">¿Posee políticas de comunicación y diálogo asertivas y amigables con sus empleados que
+                permitan diagnosticar necesidades y dificultades?
+            </label><br>
+            <input type="radio"  name="i" value="E" required>
+            <label for="i">Si</label><br>
+            <input type="radio"  name="i" value="B" required>
+            <label for="i">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="j">¿La organización implementa planes de beneficios o prestaciones en sus empleados que afiancen
+                la pertenencia?
+            </label><br>
+            <input type="radio"  name="j" value="E" required>
+            <label for="j">Si</label><br>
+            <input type="radio"  name="j" value="B" required>
+            <label for="j">No</label><br>
+        </div>
+        <input type="submit" value="Next">
+    </form>
+
+
+    <form name="form3" class="form3" onsubmit="validateForm(name)">
+        <legend>ECONÓMICO</legend>
+        <div >
+        <label class="label-form" for="a">¿Tiene una política de crédito préstamos para sus empleados?
+        </label><br>
+        <input type="radio" name="a" value="E" required>
+        <label for="a">Si</label><br>
+        <input type="radio" name="a" value="B" required>
+        <label for="a">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="b">¿Sus empleados tienen precio diferencial para comprar los productos o servicios que ofrece?
+            </label><br>
+            <input type="radio" name="b" value="E" required>
+            <label for="b">Si</label><br>
+            <input type="radio" name="b" value="B" required>
+            <label for="b">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="c">¿La empresa destina fondos para tecnología e innovación? </label><br>
+            <input type="radio" name="c" value="E" required>
+            <label for="c">Si</label><br>
+            <input type="radio" name="c" value="B" required>
+            <label for="c">No</label><br>
+        </div>
+        <div>
+            <label class="label-form" for="d">¿Tienen implementado alguna política de reclamo y/o sugerencia para que los trabajadores cuenten con algún canal para hacerlo que resguarde el anonimato?
+            </label><br>
+            <input type="radio"  name="d" value="E" required>
+            <label for="d">Si</label><br>
+            <input type="radio"  name="d" value="B" required>
+            <label for="d">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="e">¿La empresa integra el desempeño social y ambiental en la toma de decisiones para el proceso de compra a proveedores?
+            </label><br>
+            <input type="radio" name="e" value="E" required>
+            <label for="e">Si</label><br>
+            <input type="radio" name="e" value="B" required>
+            <label for="e">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="f">¿La empresa mide su aspecto económico cuando actúa en lo social y ambiental?
+            </label><br>
+            <input type="radio" name="f" value="E" required>
+            <label for="f">Si</label><br>
+            <input type="radio" name="f" value="B" required>
+            <label for="f">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="g">¿Comunica de manera pública y transparente su desempeño social, ambiental y financiero?
+            </label><br>
+            <input type="radio"  name="g" value="E" required>
+            <label for="g">Si</label><br>
+            <input type="radio"  name="g" value="B" required>
+            <label for="g">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="h">¿Los estados financieros de la empresa son evaluados por profesional o entidad de auditoría acreditada?
+            </label><br>
+            <input type="radio"  name="h" value="E" required>
+            <label for="h">Si</label><br>
+            <input type="radio"  name="h" value="B" required>
+            <label for="h">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="i">¿Tiene identificados los riesgos y oportunidades vinculados a los grupos de interés afectados por las actividades de la empresa?
+            </label><br>
+            <input type="radio"  name="i" value="E" required>
+            <label for="i">Si</label><br>
+            <input type="radio"  name="i" value="B" required>
+            <label for="i">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="j">¿Para la compra de insumos tiene en cuenta productos de la economía local y regional?            </label><br>
+            <input type="radio"  name="j" value="E" required>
+            <label for="j">Si</label><br>
+            <input type="radio"  name="j" value="B" required>
+            <label for="j">No</label><br>
+        </div>
+        <input type="submit" value="Next">
+    </form>
+
+    <form name="form4" class="form4" onsubmit="validateForm(name)">
+        <legend>ECONÓMICO</legend>
+        <div >
+        <label class="label-form" for="a">¿En los últimos 5 años ha incorporado algunas estrategias para mitigar el cambio climático y la des carbonización de la economía?
+        </label><br>
+        <input type="radio" name="a" value="E" required>
+        <label for="a">Si</label><br>
+        <input type="radio" name="a" value="B" required>
+        <label for="a">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="b">¿Ha desarrollado algún protocolo o proyecto que impulse la economía circular?
+            </label><br>
+            <input type="radio" name="b" value="E" required>
+            <label for="b">Si</label><br>
+            <input type="radio" name="b" value="B" required>
+            <label for="b">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="c">¿Capacita a sus empleados en Higiene y seguridad?
+            </label><br>
+            <input type="radio" name="c" value="E" required>
+            <label for="c">Si</label><br>
+            <input type="radio" name="c" value="B" required>
+            <label for="c">No</label><br>
+        </div>
+        <div>
+            <label class="label-form" for="d">¿Les provee a sus empleados de equipos de protección personal?
+            </label><br>
+            <input type="radio"  name="d" value="E" required>
+            <label for="d">Si</label><br>
+            <input type="radio"  name="d" value="B" required>
+            <label for="d">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="e">¿Tiene algún procedimiento/protocolo en caso de accidente?
+            </label><br>
+            <input type="radio" name="e" value="E" required>
+            <label for="e">Si</label><br>
+            <input type="radio" name="e" value="B" required>
+            <label for="e">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="f">¿Hay letreros y advertencias colocados en sus instalaciones a fin de recordarles la importancia de usar equipo de protección personal y de seguir todas las indicaciones de seguridad?
+            </label><br>
+            <input type="radio" name="f" value="E" required>
+            <label for="f">Si</label><br>
+            <input type="radio" name="f" value="B" required>
+            <label for="f">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="g">¿En los acuerdos con clientes, proveedores y distribuidores (y otros grupos de interés), la empresa prevé cláusulas que promuevan el cumplimiento de estándares ambientales y/o sociales?
+            </label><br>
+            <input type="radio"  name="g" value="E" required>
+            <label for="g">Si</label><br>
+            <input type="radio"  name="g" value="B" required>
+            <label for="g">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="h">¿La empresa promueve la generación de alianzas empresariales, sociales, institucionales, gubernamentales, entre otras, para la realización de actividades de impacto social y ambiental?
+            </label><br>
+            <input type="radio"  name="h" value="E" required>
+            <label for="h">Si</label><br>
+            <input type="radio"  name="h" value="B" required>
+            <label for="h">No</label><br>
+        </div>
+        <input type="submit" value="Next">
+    </form>
+
+    <form name="form5" class="form5" onsubmit="validateForm(name)">
+        <legend>Ambiental</legend>
+        <div >
+        <label class="label-form" for="a">¿Realizó un estudio de impacto ambiental generado por sus actividades?
+        </label><br>
+        <input type="radio" name="a" value="A" required>
+        <label for="a">Si</label><br>
+        <input type="radio" name="a" value="B" required>
+        <label for="a">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="b">¿La empresa cuenta con un sistema de gestión ambiental?</label><br>
+            <input type="radio" name="b" value="A" required>
+            <label for="b">Si</label><br>
+            <input type="radio" name="b" value="B" required>
+            <label for="b">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="c">¿Cuenta con una certificación o evaluación de sus prácticas ambientales, realizada por una entidad externa independiente, durante los últimos doce meses? </label><br>
+            <input type="radio" name="c" value="A" required>
+            <label for="c">Si</label><br>
+            <input type="radio" name="c" value="B" required>
+            <label for="c">No</label><br>
+        </div>
+        <div>
+            <label class="label-form" for="d">¿Capacita a sus trabajadores sobre temas ambientales como el uso responsable de la energía, agua, separación de residuos, tanto en las instalaciones de la empresa como en sus hogares?</label><br>
+            <input type="radio"  name="d" value="A" required>
+            <label for="d">Si</label><br>
+            <input type="radio"  name="d" value="B" required>
+            <label for="d">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="e">¿Destina algún tipo de recurso a innovación, investigación y desarrollo para que los bienes o servicios que brinda sean más sustentables con el ambiente? </label><br>
+            <input type="radio" name="e" value="A" required>
+            <label for="e">Si</label><br>
+            <input type="radio" name="e" value="B" required>
+            <label for="e">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="f">¿Incluye criterios de sostenibilidad ambiental en procesos de adquisición y compras, a la hora de evaluar las ofertas de sus proveedores?</label><br>
+            <input type="radio" name="f" value="A" required>
+            <label for="f">Si</label><br>
+            <input type="radio" name="f" value="B" required>
+            <label for="f">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="g">¿Mide, evalúa, da seguimiento y reporta que el consumo sea energéticamente eficiente para realizar sus actividades?</label><br>
+            <input type="radio"  name="g" value="A" required>
+            <label for="g">Si</label><br>
+            <input type="radio"  name="g" value="B" required>
+            <label for="g">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="h">¿Implementa medidas de ahorro y eficiencia energética para reducir el consumo de energía?</label><br>
+            <input type="radio"  name="h" value="A" required>
+            <label for="h">Si</label><br>
+            <input type="radio"  name="h" value="B" required>
+            <label for="h">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="i">¿Mide, evalúa, da seguimiento y reporta la huella hídrica?</label><br>
+            <input type="radio"  name="i" value="A" required>
+            <label for="i">Si</label><br>
+            <input type="radio"  name="i" value="B" required>
+            <label for="i">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="j">¿Implementa medidas de ahorro, eficiencia, previenen y detectan fugas y fija objetivos de reducción de consumo del recurso hídrico?</label><br>
+            <input type="radio"  name="j" value="A" required>
+            <label for="j">Si</label><br>
+            <input type="radio"  name="j" value="B" required>
+            <label for="j">No</label><br>
+        </div>
+        <input type="submit" value="Next">
+    </form>
+
+
+    <form name="form6" class="form6" onsubmit="validateForm(name)">
+        <legend>Ambiental</legend>
+        <div >
+        <label class="label-form" for="a">¿Se desarrollan proyectos de infraestructura de agua y saneamiento en la zona donde opera su empresa, así como proyectos de abastecimiento de agua en comunidades colindantes o aisladas en colaboración con ONG u otros organismos que conocen estos territorios?</label><br>
+        <input type="radio" name="a" value="A" required>
+        <label for="a">Si</label><br>
+        <input type="radio" name="a" value="B" required>
+        <label for="a">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="b">¿Se realizan acciones en sistemas de tratamiento para la reutilización de aguas residuales?</label><br>
+            <input type="radio" name="b" value="A" required>
+            <label for="b">Si</label><br>
+            <input type="radio" name="b" value="B" required>
+            <label for="b">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="c">¿Mide, evalúa, da seguimiento y reporta la generación de efluentes líquidos peligrosos y no peligrosos?</label><br>
+            <input type="radio" name="c" value="A" required>
+            <label for="c">Si</label><br>
+            <input type="radio" name="c" value="B" required>
+            <label for="c">No</label><br>
+        </div>
+        <div>
+            <label class="label-form" for="d">¿Mide, evalúa, da seguimiento y reporta las emisiones gaseosas directas e indirectas  generadas en su actividad económica?</label><br>
+            <input type="radio"  name="d" value="A" required>
+            <label for="d">Si</label><br>
+            <input type="radio"  name="d" value="B" required>
+            <label for="d">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="e">¿Evita utilizar productos químicos con contaminantes orgánicos persistentes? Ejemplo: Bifenilos policlorados (PCB), Hexaclorobenceno (HCB), Dieldrina, entre otros)</label><br>
+            <input type="radio" name="e" value="A" required>
+            <label for="e">Si</label><br>
+            <input type="radio" name="e" value="B" required>
+            <label for="e">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="f">¿Se busca disminuir, sustituir o consumir materias primas y/o insumos que generen menor impacto ambiental?</label><br>
+            <input type="radio" name="f" value="A" required>
+            <label for="f">Si</label><br>
+            <input type="radio" name="f" value="B" required>
+            <label for="f">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="g">¿El desarrollo de su actividad económica  evita un impacto negativo en el suelo?</label><br>
+            <input type="radio"  name="g" value="A" required>
+            <label for="g">Si</label><br>
+            <input type="radio"  name="g" value="B" required>
+            <label for="g">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="h">¿Cuenta con prácticas y/o programas para proteger los ecosistemas, vinculados a las actividades de la empresa?</label><br>
+            <input type="radio"  name="h" value="A" required>
+            <label for="h">Si</label><br>
+            <input type="radio"  name="h" value="B" required>
+            <label for="h">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="i">¿Utiliza alguna materia prima en su actividad económica que sea descarte de otro proceso?</label><br>
+            <input type="radio"  name="i" value="A" required>
+            <label for="i">Si</label><br>
+            <input type="radio"  name="i" value="B" required>
+            <label for="i">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="j">¿Clasifica y separa/segrega los residuos generados por su actividad económica para luego medir, evaluar, hacer seguimiento y realizar el reporte?</label><br>
+            <input type="radio"  name="j" value="A" required>
+            <label for="j">Si</label><br>
+            <input type="radio"  name="j" value="B" required>
+            <label for="j">No</label><br>
+        </div>
+        <input type="submit" value="Next">
+    </form>
+
+    <form name="form7" class="form7" onsubmit="validateForm(name)">
+        <legend>Ambiental</legend>
+        <div >
+        <label class="label-form" for="a">¿Cuenta con certificación o constancia que acredite el tratamiento integral de los residuos?</label><br>
+        <input type="radio" name="a" value="A" required>
+        <label for="a">Si</label><br>
+        <input type="radio" name="a" value="B" required>
+        <label for="a">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="b">¿Los bienes fabricados o comercializados contienen materiales que podrían ser separados para su reutilización o reciclaje?</label><br>
+            <input type="radio" name="b" value="A" required>
+            <label for="b">Si</label><br>
+            <input type="radio" name="b" value="B" required>
+            <label for="b">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="c">¿Su empresa evita utilizar materiales peligrosos en sus instalaciones?</label><br>
+            <input type="radio" name="c" value="A" required>
+            <label for="c">Si</label><br>
+            <input type="radio" name="c" value="B" required>
+            <label for="c">No</label><br>
+        </div>
+        <div>
+            <label class="label-form" for="d">¿Los bienes fabricados o comercializados contienen materiales o sustancias biodegradables, compostables, reutilizables o reciclados?</label><br>
+            <input type="radio"  name="d" value="A" required>
+            <label for="d">Si</label><br>
+            <input type="radio"  name="d" value="B" required>
+            <label for="d">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="e">¿Los bienes o servicios producidos en su empresa reducen los niveles de consumo de agua y energía en su uso o prestación?</label><br>
+            <input type="radio" name="e" value="A" required>
+            <label for="e">Si</label><br>
+            <input type="radio" name="e" value="B" required>
+            <label for="e">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="f">¿Busca reducir el porcentaje de sustancias tóxicas -para la salud o el ambiente- contenido en sus bienes o servicios?</label><br>
+            <input type="radio" name="f" value="A" required>
+            <label for="f">Si</label><br>
+            <input type="radio" name="f" value="B" required>
+            <label for="f">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="g">¿Sus productos o servicios cuentan con certificaciones ambientales de reconocimiento internacional?</label><br>
+            <input type="radio"  name="g" value="A" required>
+            <label for="g">Si</label><br>
+            <input type="radio"  name="g" value="B" required>
+            <label for="g">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="h">¿Mide, evalúa, da seguimiento y reporta la huella de carbono? (GHG Protocolo, ISO 14064-1, IPCC Workbook)</label><br>
+            <input type="radio"  name="h" value="A" required>
+            <label for="h">Si</label><br>
+            <input type="radio"  name="h" value="B" required>
+            <label for="h">No</label><br>
+        </div>
+       <div >
+            <label class="label-form" for="i">¿Realiza diagnósticos de impactos en la comunidad a raíz de sus operaciones como el nivel de ruido, el tránsito de vehículos, la intensidad de olores, etc.?</label><br>
+            <input type="radio"  name="i" value="A" required>
+            <label for="i">Si</label><br>
+            <input type="radio"  name="i" value="B" required>
+            <label for="i">No</label><br>
+        </div>
+        <input type="submit" value="Next">
+    </form>
+
+    <form name="form8" class="form8" onsubmit="validateForm(name)">
+        <legend>Genero</legend>
+        <div >
+        <label class="label-form" for="a">¿Conoce la Ley de protección integral a las mujeres, Ley n° 26485?</label><br>
+        <input type="radio" name="a" value="G" required>
+        <label for="a">Si</label><br>
+        <input type="radio" name="a" value="B" required>
+        <label for="a">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="b">¿Conoce la Ley Micaela?</label><br>
+            <input type="radio" name="b" value="G" required>
+            <label for="b">Si</label><br>
+            <input type="radio" name="b" value="B" required>
+            <label for="b">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="c">¿Incentiva la incorporación de mujeres en sus cargos jerárquicos superiores?</label><br>
+            <input type="radio" name="c" value="G" required>
+            <label for="c">Si</label><br>
+            <input type="radio" name="c" value="B" required>
+            <label for="c">No</label><br>
+        </div>
+        <div>
+            <label class="label-form" for="d">¿Incentiva la diversidad de género en los trabajos operativos?</label><br>
+            <input type="radio"  name="d" value="G" required>
+            <label for="d">Si</label><br>
+            <input type="radio"  name="d" value="B" required>
+            <label for="d">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="e">¿Ofrece programas de conciliación de vida familiar y profesional para hombres y mujeres basados en la flexibilidad de horarios y el teletrabajo?</label><br>
+            <input type="radio" name="e" value="G" required>
+            <label for="e">Si</label><br>
+            <input type="radio" name="e" value="B" required>
+            <label for="e">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="f">¿Tiene planes estratégicos de empoderamiento de las mujeres no solo dentro de la empresa, sino también en la cadena de suministro y en la financiación para la creación de nuevas empresas?</label><br>
+            <input type="radio" name="f" value="G" required>
+            <label for="f">Si</label><br>
+            <input type="radio" name="f" value="B" required>
+            <label for="f">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="g">¿Establece planes de generación de iniciativas que ayuden a las mujeres a desarrollarse y ampliar sus oportunidades, apoyando la igualdad de derechos sociales y económicos?</label><br>
+            <input type="radio"  name="g" value="G" required>
+            <label for="g">Si</label><br>
+            <input type="radio"  name="g" value="B" required>
+            <label for="g">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="h">¿Tienen criterios de interculturalidad, diversidad e inclusividad de diferentes colectivos para la conformación de equipos de trabajo?</label><br>
+            <input type="radio"  name="h" value="G" required>
+            <label for="h">Si</label><br>
+            <input type="radio"  name="h" value="B" required>
+            <label for="h">No</label><br>
+        </div>
+       <div >
+            <label class="label-form" for="i">¿Impulsa la promoción del capital humano femenino y reduce la brecha salarial?</label><br>
+            <input type="radio"  name="i" value="G" required>
+            <label for="i">Si</label><br>
+            <input type="radio"  name="i" value="B" required>
+            <label for="i">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="j">¿Ha construido un plan de trabajo para hacer los espacios laborales más igualitarios?</label><br>
+            <input type="radio"  name="j" value="G" required>
+            <label for="j">Si</label><br>
+            <input type="radio"  name="j" value="B" required>
+            <label for="j">No</label><br>
+        </div>
+        <input type="submit" value="Next">
+    </form>
+
+    <form name="form9" class="form9" onsubmit="validateForm(name)">
+        <legend>Genero</legend>
+        <div >
+        <label class="label-form" for="a">¿Promueve programas de microcréditos para que las mujeres con ideas innovadoras puedan lanzar su propio negocio gracias a esta financiación?</label><br>
+        <input type="radio" name="a" value="G" required>
+        <label for="a">Si</label><br>
+        <input type="radio" name="a" value="B" required>
+        <label for="a">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="b">¿Han redactado protocolos para asegurar el tratamiento de casos de violencia de género dentro y fuera de la empresa?</label><br>
+            <input type="radio" name="b" value="G" required>
+            <label for="b">Si</label><br>
+            <input type="radio" name="b" value="B" required>
+            <label for="b">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="c">¿Existen momentos de evaluación de clima laboral libres de hostilidades y respeto por los derechos de cada uno?</label><br>
+            <input type="radio" name="c" value="G" required>
+            <label for="c">Si</label><br>
+            <input type="radio" name="c" value="B" required>
+            <label for="c">No</label><br>
+        </div>
+        <div>
+            <label class="label-form" for="d">¿Está definido un procedimiento para los casos de abuso y/o acoso sexual?</label><br>
+            <input type="radio"  name="d" value="G" required>
+            <label for="d">Si</label><br>
+            <input type="radio"  name="d" value="B" required>
+            <label for="d">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="e">¿Ha medido el impacto económico de la incorporación de las mujeres en los equipos de trabajo?</label><br>
+            <input type="radio" name="e" value="G" required>
+            <label for="e">Si</label><br>
+            <input type="radio" name="e" value="B" required>
+            <label for="e">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="f">¿Están establecidas las condiciones edilicias, seguras y amigables para los espacios lactarios?</label><br>
+            <input type="radio" name="f" value="G" required>
+            <label for="f">Si</label><br>
+            <input type="radio" name="f" value="B" required>
+            <label for="f">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="g">¿Cuenta la empresa con lugares de atención a las primeras infancias?</label><br>
+            <input type="radio"  name="g" value="G" required>
+            <label for="g">Si</label><br>
+            <input type="radio"  name="g" value="B" required>
+            <label for="g">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="h">¿Ha tomado decisiones en torno al trabajo de la mujer, en relación a tareas que requieran grandes esfuerzos de pesos, cargas y descargas?</label><br>
+            <input type="radio"  name="h" value="G" required>
+            <label for="h">Si</label><br>
+            <input type="radio"  name="h" value="B" required>
+            <label for="h">No</label><br>
+        </div>
+       <div >
+            <label class="label-form" for="i">¿Han organizado la distribución justa de las tareas de maestranza y mantenimiento en la empresa?</label><br>
+            <input type="radio"  name="i" value="G" required>
+            <label for="i">Si</label><br>
+            <input type="radio"  name="i" value="B" required>
+            <label for="i">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="j">¿Han pensado en promoción de compras a empresas que son propiedad de mujeres, o marketing y publicidad con enfoque de género?</label><br>
+            <input type="radio"  name="j" value="G" required>
+            <label for="j">Si</label><br>
+            <input type="radio"  name="j" value="B" required>
+            <label for="j">No</label><br>
+        </div>
+        <input type="submit" value="Next">
+    </form>
+
+
+    <form name="form10" class="form10" onsubmit="validateForm(name)">
+        <legend>Genero</legend>
+        <div >
+        <label class="label-form" for="a">¿Han redactado estrategias para mitigar los prejuicios hacia las personas LGBTQ+?</label><br>
+        <input type="radio" name="a" value="G" required>
+        <label for="a">Si</label><br>
+        <input type="radio" name="a" value="B" required>
+        <label for="a">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="b">¿Han generado espacios seguros para fomentar políticas laborales de diversidad e inclusión?</label><br>
+            <input type="radio" name="b" value="G" required>
+            <label for="b">Si</label><br>
+            <input type="radio" name="b" value="B" required>
+            <label for="b">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="c">¿Existen políticas de comunicación que permiten romper los silencios cómplices y visibilizarse como aliado del colectivo LGBQ+?</label><br>
+            <input type="radio" name="c" value="G" required>
+            <label for="c">Si</label><br>
+            <input type="radio" name="c" value="B" required>
+            <label for="c">No</label><br>
+        </div>
+        <input type="submit" value="Next">
+    </form>
+
+    <form name="form11" class="form11" onsubmit="validateForm(name)">
+        <legend>Social</legend>
+        <div >
+        <label class="label-form" for="a">¿Busca una participación dinámica y transparente con grupos representativos de la comunidad para la búsqueda de soluciones conjuntas a los problemas comunitarios?</label><br>
+        <input type="radio" name="a" value="S" required>
+        <label for="a">Si</label><br>
+        <input type="radio" name="a" value="B" required>
+        <label for="a">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="b">¿Posee asignación presupuestaria para el desarrollo, creación y cuidado de los bienes públicos?</label><br>
+            <input type="radio" name="b" value="S" required>
+            <label for="b">Si</label><br>
+            <input type="radio" name="b" value="B" required>
+            <label for="b">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="c">¿Mantiene en forma permanente los canales de comunicación con la comunidad cercana y atiende sus demandas, sugerencias y pedidos?</label><br>
+            <input type="radio" name="c" value="S" required>
+            <label for="c">Si</label><br>
+            <input type="radio" name="c" value="B" required>
+            <label for="c">No</label><br>
+        </div>
+        <div>
+            <label class="label-form" for="d">¿Ha formado un comité con representantes de la comunidad y con vecinos para tratar cuestiones e iniciativas en beneﬁcio de la comunidad?</label><br>
+            <input type="radio"  name="d" value="S" required>
+            <label for="d">Si</label><br>
+            <input type="radio"  name="d" value="B" required>
+            <label for="d">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="e">¿Tiene un plan anual de desarrollo comunitario con asignación presupuestaria y ajustada en función de un diagnóstico previo para tratar las necesidades y el desarrollo de la comunidad?
+            </label><br>
+            <input type="radio" name="e" value="S" required>
+            <label for="e">Si</label><br>
+            <input type="radio" name="e" value="B" required>
+            <label for="e">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="f">¿Paga a sus trabajadores un salario digno por encima del salario mínimo exigido por la normativa laboral aplicable?</label><br>
+            <input type="radio" name="f" value="S" required>
+            <label for="f">Si</label><br>
+            <input type="radio" name="f" value="B" required>
+            <label for="f">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="g">¿Desarrolla indicadores que le permiten monitorear y gestionar sus impactos en la comunidad?</label><br>
+            <input type="radio"  name="g" value="S" required>
+            <label for="g">Si</label><br>
+            <input type="radio"  name="g" value="B" required>
+            <label for="g">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="h">¿Elabora planes periódicos de mejoras en la reducción de sus impactos en la comunidad?</label><br>
+            <input type="radio"  name="h" value="S" required>
+            <label for="h">Si</label><br>
+            <input type="radio"  name="h" value="B" required>
+            <label for="h">No</label><br>
+        </div>
+       <div >
+            <label class="label-form" for="i">¿Realiza compras y/o contrataciones de servicios a la comunidad vecina, por ejemplo, contratación de personal eventual, mercadería y alimentos en general, servicios varios a nivel de reparaciones de maquinaria e infraestructura, entre otros?</label><br>
+            <input type="radio"  name="i" value="S" required>
+            <label for="i">Si</label><br>
+            <input type="radio"  name="i" value="B" required>
+            <label for="i">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="j">¿Tiene algún procedimiento o política formalizada para la compra de productos y/o servicios a la comunidad vecina?</label><br>
+            <input type="radio"  name="j" value="S" required>
+            <label for="j">Si</label><br>
+            <input type="radio"  name="j" value="B" required>
+            <label for="j">No</label><br>
+        </div>
+        <input type="submit" value="Next">
+    </form>
+
+    <form name="form12" class="form12" onsubmit="validateForm(name)">
+        <legend>Social</legend>
+        <div >
+        <label class="label-form" for="a">¿Realiza iniciativas para alentar el desarrollo de negocios y oportunidades laborales a nivel individual, familiar o asociativo en la comunidad?</label><br>
+        <input type="radio" name="a" value="S" required>
+        <label for="a">Si</label><br>
+        <input type="radio" name="a" value="B" required>
+        <label for="a">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="b">¿Ha construido estrategias para lograr el empleo pleno y productivo y el trabajo decente para todas las mujeres y los hombres, incluidos los jóvenes y las personas con discapacidad, en el contexto donde se encuentra ubicada su empresa?</label><br>
+            <input type="radio" name="b" value="S" required>
+            <label for="b">Si</label><br>
+            <input type="radio" name="b" value="B" required>
+            <label for="b">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="c">¿Ha elaborado y aplicado instrumentos para lograr un turismo sostenible que cree puestos de trabajo y promueva la cultura y los productos locales en su contexto?</label><br>
+            <input type="radio" name="c" value="S" required>
+            <label for="c">Si</label><br>
+            <input type="radio" name="c" value="B" required>
+            <label for="c">No</label><br>
+        </div>
+        <div>
+            <label class="label-form" for="d">¿Informa periódicamente a su público interno (trabajadores) sobre los impactos y las acciones de mejora en materia de desarrollo comunitario?</label><br>
+            <input type="radio"  name="d" value="S" required>
+            <label for="d">Si</label><br>
+            <input type="radio"  name="d" value="B" required>
+            <label for="d">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="e">¿Comunica a sus diferentes partes interesadas, proveedores y empresas vecinas, organizaciones públicas, organizaciones de la sociedad civil, su compromiso con el desarrollo comunitario e invita a realizar acciones en conjunto?
+            </label><br>
+            <input type="radio" name="e" value="S" required>
+            <label for="e">Si</label><br>
+            <input type="radio" name="e" value="B" required>
+            <label for="e">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="f">¿Ha hecho aportes comunitarios en los últimos dos años para mejorar la calidad de acceso a la salud y a la educación en su contexto?</label><br>
+            <input type="radio" name="f" value="S" required>
+            <label for="f">Si</label><br>
+            <input type="radio" name="f" value="B" required>
+            <label for="f">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="g">¿Prohíbe explícitamente en la contratación de servicios de proveedores (fundamentalmente personal tercerizado para tareas agrícolas) la presencia de niños acompañando a sus madres, padres o adolescentes menores de 16 años?</label><br>
+            <input type="radio"  name="g" value="S" required>
+            <label for="g">Si</label><br>
+            <input type="radio"  name="g" value="B" required>
+            <label for="g">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="h">¿Realiza acciones de concientización entre su público interno y otras partes interesadas sobre temas relacionados a la protección de derechos de niños y adolescentes?</label><br>
+            <input type="radio"  name="h" value="S" required>
+            <label for="h">Si</label><br>
+            <input type="radio"  name="h" value="B" required>
+            <label for="h">No</label><br>
+        </div>
+       <div >
+            <label class="label-form" for="i">¿Moviliza su red de partes interesadas para contribuir con la protección de los derechos de niños y adolescentes (por ejemplo, trabajos con la comunidad para funcionalizar establecimientos polideportivos o clubes, instalación de guarderías o jardines maternales en la misma empresa o bien en la comunidad y en conjunto con otras organizaciones interesadas, etc.)?</label><br>
+            <input type="radio"  name="i" value="S" required>
+            <label for="i">Si</label><br>
+            <input type="radio"  name="i" value="B" required>
+            <label for="i">No</label><br>
+        </div>
+        <div >
+            <label class="label-form" for="j">¿Ha hecho alianzas con otras instituciones para favorecer el cumplimiento de las trayectorias obligatorias de educación formal?</label><br>
+            <input type="radio"  name="j" value="S" required>
+            <label for="j">Si</label><br>
+            <input type="radio"  name="j" value="B" required>
+            <label for="j">No</label><br>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+
+
+
+    <div id="allResultados">
+        <div id="resultados" style="display: none;">
+            <h1 id="titulo">Resultados</h1>
+            <h3 id="pun-total">Puntuación total</h3>
+            <h4 id="scoreTotal" class="ScoreNumbers">0</h4>
+            <div id="pos-total">
+            <section class="content">
+                    <div class="box gauge--3">
+                    <div class="mask">
+                        <div class="semi-circle"></div>
+                        <div class="semi-circle--mask"></div>
+                    </div>
+                    </div>
+            </section> 
+            <div class="item">
+                <i id="arrow1" class="fa fa-long-arrow-up arrow1" aria-hidden="true"></i>
+            </div>
+        </div> 
+        
+        <p class="parraf" id="conclusion"></p>
+        
+        <h3 id="pun-amb">Puntuación Ambiental</h3>
+        <h4 id="scoreAmb" class="ScoreNumbers"></h4>
+        <div id="pos-total">
+            <section class="content">
+                    <div class="box gauge--3">
+                    <div class="mask">
+                        <div class="semi-circle"></div>
+                        <div class="semi-circle--mask"></div>
+                    </div>
+                    </div>
+            </section> 
+            <div class="item">
+                <i id="arrow2" class="fa fa-long-arrow-up arrow2" aria-hidden="true"></i>
+            </div>
+        </div>
+        
+        
+        <h3 id="pun-amb">Puntuación Económica</h3>
+        <h4 id="scoreEco" class="ScoreNumbers"></h4>
+        <div id="pos-total">
+            <section class="content">
+                    <div class="box gauge--3">
+                    <div class="mask">
+                        <div class="semi-circle"></div>
+                        <div class="semi-circle--mask"></div>
+                    </div>
+                    </div>
+            </section> 
+            <div class="item">
+                <i id="arrow3" class="fa fa-long-arrow-up arrow3" aria-hidden="true"></i>
+            </div>
+        </div>
+        
+        <h3 id="pun-amb">Puntuación Social</h3>
+        <h4 id="scoreSoc" class="ScoreNumbers"></h4>
+        <div id="pos-total">
+            <section class="content">
+                    <div class="box gauge--3">
+                    <div class="mask">
+                        <div class="semi-circle"></div>
+                        <div class="semi-circle--mask"></div>
+                    </div>
+                    </div>
+            </section> 
+            <div class="item">
+                <i id="arrow4" class="fa fa-long-arrow-up arrow4" aria-hidden="true"></i>
+            </div>
+        </div>
+        
+        <h3 id="pun-amb">Puntuación de Genero</h3>
+        <h4 id="scoreGen" class="ScoreNumbers"></h4>
+        <div id="pos-total">
+            <section class="content">
+                    <div class="box gauge--3">
+                    <div class="mask">
+                        <div class="semi-circle"></div>
+                        <div class="semi-circle--mask"></div>
+                    </div>
+                    </div>
+            </section> 
+            <div class="item">
+                <i id="arrow5" class="fa fa-long-arrow-up arrow5" aria-hidden="true"></i>
+            </div>
+        </div>
+        <p class="parraf-last"></p>
+    </div>
+
+    <div class="b-example-divider"></div>
+    
+    
+    </div>
+    <div class="container">
+        <footer class="fixed-bottom d-flex flex-wrap justify-content-between align-items-center py-3 my-2 border-top p-3 mb-0 bg-light text-dark">
+          <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+              <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+            <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Inc</span>
+          </div>
+      
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+          </ul>
+          
+        </footer>
+      </div>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-        crossorigin="anonymous"></script>
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
-        crossorigin="anonymous"></script>
-
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"></script>
 </body>
 
 </html>
