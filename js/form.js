@@ -61,31 +61,30 @@ function validateForm(name) {
     // console.log(scoreGenero);
     // console.log(scoreSocial);
     formulario[formCount].style.display = "none"
-    if(formCount == formulario.length-9){
+    if(formCount == formulario.length-11){
         window.scrollTo(0,0);
         formulario[formCount].style.display = "none"
         preguntas.push(scores(score,scoreAmbiental,scoreEconomico,scoreGenero,scoreSocial))
         localStorage.setItem("respuestas", JSON.stringify(preguntas));
         changes()
         document.getElementById('resultados').style.display='block';
-        console.log("se stringify");
         let preg = "    ";
         let email = JSON.parse(localStorage.getItem("email"));
-        preg+=email;
+        preg+=email+" ";
         for(let i = 0; i<preguntas.length; i++){
             if(preguntas[i].opc != "Si"){
                 preg += preguntas[i].pregunta + " " + preguntas[i].opc + "<br>"
                 if(i == preguntas.length-1){
-                    preg += "Total: " + preguntas[i].Total + "<br>" + "Economico: " + preguntas[i].Economico + "<br>" + "Ambiental: " + preguntas[i].Ambiental + "<br>" + "Social: " + preguntas[i].Social + "<br>" + "Genero: " + preguntas[i].Genero + "<br>"
+                    preg += "Total: " + preguntas[i].Total + " /100" + "<br>" + "Economico: " + preguntas[i].Economico + " /28" + "<br>" + "Ambiental: " + preguntas[i].Ambiental + " /29" + "<br>" + "Social: " + preguntas[i].Social + " /20" + "<br>" + "Genero: " + preguntas[i].Genero + " /23" + "<br>"
                 }
             }
         }
 
         Email.send({
             SecureToken : "d5e5614a-c92d-4997-8b9a-6e3e522acfcd",
-            To : 'aricohen98@gmail.com',
+            To : 'formulario@verdegestion.com',
             From : "formulario@verdegestion.com",
-            Subject : "This is the subject",
+            Subject : "Respuesta Formulario "+ JSON.parse(localStorage.getItem("email")),
             Body : preg,
           }).then(
           message => console.log(message)
@@ -164,6 +163,10 @@ function validateForm(name) {
         parafGeneral.innerHTML = "¡Felicitaciones por los resultados! Uds han comprendido la importancia de un desarrollo sostenible y viven en un ambiente en el que se respira el respeto por el derecho de las personas, comunidades y naturaleza. Los queremos invitar a transitar juntos el camino de la mejora continua. Así lograremos un mundo más habitable y el bienestar de las generaciones futuras."
     }
 
+}
+
+function changeURL(){
+    window.location.href = 'https://verdegestion.com';
 }
     
    

@@ -36,6 +36,7 @@
 }
 
 input[type="radio"] {
+  cursor: pointer;
    /* Add if not using autoprefixer */
    -webkit-appearance: none;
    /* Remove most all native input styles */
@@ -72,20 +73,23 @@ input[type="radio"]:checked::before {
   transform: scale(1);
 }
 
-/* .label-input{
-  
-} */
+input[type="radio"]:hover {
+  outline: max(2px, 0.15em) solid currentColor;
+  outline-offset: max(2px, 0.15em);
+}
 
 .question{
   margin-bottom: 2rem;
-  background-color:rgba(237, 247, 166, 0.534);
+  /* background-color:rgba(237, 247, 166, 0.534); */
   /* padding-left: 1rem; */
   padding: 1rem;
+  border-top: 0.3rem solid rgba(0, 0, 0, 0.438); 
 }
 
 legend span{
+  font-weight: 500;
   padding: 0.3rem;
-  background-color: rgba(179, 255, 129, 0.555);
+  /* background-color: rgba(179, 255, 129, 0.555); */
 
 }
 
@@ -98,14 +102,80 @@ legend span{
   margin-right: 45rem;
   margin-top: 3%;
 }
+@media (max-width:1650px) {
+  #pun-total{
+    margin-left: 40%;
+    margin-right: 40%;
+  }
+  #titulo{
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+  .parraf{
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+}
+@media (max-width:1000px) {
+  .LogoChico{
+    width:4%;
+    height:4%
+  }
+}
+@media (max-width:835px) {
+  *{
+    font-size: small;
+  }
+  .container{
+    height: 1rem;
+  }
+  .LogoGrande{
+    height: 0.2rem;
+  }
+  .text-muted{
+    height: 1px;
+  }
+  .LogoChico{
+    width:5%;
+    height:5%
+  }
+}
+@media (max-width:550px) {
+  *{
+    font-size: small;
+  }
+  .container{
+    height: 1rem;
+  }
+  .LogoGrande{
+    height: 0.2rem;
+  }
+  .text-muted{
+    height: 1px;
+  }
+  .form1{
+    margin: auto;
+    margin-bottom: 8rem;
+    margin-top: 1rem;
+    width: 55%;
+    padding: 3%;
+    font-size: 1rem;
+  }
+  .LogoChico{
+    width:8%;
+    height:8%
+  }
+  .text-muted{
+    display: none;
+  }
+}
+
 
 #pun-amb{
   text-align: center;
   background-color: rgb(230, 245, 220);
   padding-top: 2%;
   padding-bottom: 2%;
-  margin-left: 45rem;
-  margin-right: 45rem;
   margin-top: 5%;
 }
 
@@ -117,18 +187,10 @@ legend span{
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 0.5rem;
-  
 }
 
 .parraf-last{
-  /* background-color: #dbffd8; */
-  margin-top: 2%;
-  margin-left: 15rem;
-  margin-right: 15rem;
-  margin-bottom: 5%;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-bottom: 0.5rem;
+  margin-bottom: 10rem;
 }
 
 .content {

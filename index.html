@@ -18,9 +18,10 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">   <!--bg-dark" -->
+    <nav class="navbar navbar-expand-lg navbar-light" >   <!--bg-dark" -->
         <div class="container-fluid">
-            <a class="navbar-brand" href="" onclick="window.location.reload(true);">Home</a>
+            <img src="./VERDE GESTIÓN Logo.png"  width="2.5%" height="2.5%" href="" onclick="changeURL()" style="cursor: pointer; margin-right: 0.5rem;" class="LogoChico">
+            <!-- <a class="navbar-brand" href="" onclick="window.location.reload(true);">Home</a> -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -35,7 +36,7 @@
                             data-bs-target="#LogInModal">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link logged-out" href="#" id="logout">LogOut</a>
+                        <a class="nav-link logged-out" href="" id="logout" onclick="window.location.reload(true);">LogOut</a>
                     </li>
                 </ul>
             </div>
@@ -72,74 +73,74 @@
 
     <h2 id="logged"></h2>
 
-    <form name="form1" class="form1" onsubmit="validateForm(name)">
+    <form name="form1" class="form1" onsubmit="validateForm(name);">
         <section class="intro">
             <legend><span>Perfil de la Empresa:</span></legend>
 
             <div class="question">
             <label class="label-form" for="cname">NOMBRE DE LA EMPRESA:</label><br>
-            <input class="company" type="text" id="cname" ><br>
+            <input class="company" type="text" id="cname" required><br>
             </div>
 
             <div class="question">
             <label class="label-form" for="cmail">DIRECCIÓN:</label><br>
-            <input class="company" type="text" id="cmail" name="cmail" ><br>
+            <input class="company" type="text" id="cmail" name="cmail" required><br>
             </div>
 
             <div class="question">
             <label class="label-form" for="cname">TELEFONO FIJO:</label><br>
-            <input class="company" type="number" id="cname" ><br>
+            <input class="company" type="number" id="cname" required><br>
             </div>
 
             <div class="question">
             <label class="label-form" for="cmail">SITIO WEB</label><br>
-            <input class="company" type="text" id="cmail" name="cmail" ><br>
+            <input class="company" type="text" id="cmail" name="cmail" required><br>
             </div>
 
             <div class="question">
             <label class="label-form" for="cmail">EMAIL:</label><br>
-            <input class="company" type="email" id="cmail" name="cmail" ><br>
+            <input class="company" type="email" id="cmail" name="cmail" required><br>
             </div>
 
             <div class="question">
             <label class="label-form" for="cname">FECHA DE INICIO DE ACTIVIDAD:</label><br>
-            <input class="company" type="text" id="cname" ><br>
+            <input class="company" type="text" id="cname" required><br>
             </div>
             
             <div class="question">             
             <label class="label-form" for="cname">RUBRO DE LA EMPRESA:</label><br>
-            <input class="company" type="text" id="cname" ><br>
+            <input class="company" type="text" id="cname" required><br>
             </div>
             
             <div class="question">             
             <label class="label-form" for="cname">CANTIDAD DE EMPLEADOS:</label><br>
-            <input class="company" type="number" id="cname" ><br>
+            <input class="company" type="number" id="cname" required><br>
             </div>
 
             <legend><span>Persona de Contacto:</span></legend>
             <div class="question">
             <label class="label-form" for="cname">NOMBRE:</label><br>
-            <input class="company" type="text" id="cname" ><br>
+            <input class="company" type="text" id="cname" required><br>
             </div>
 
             
             
             <div class="question">
             <label class="label-form" for="cname">CARGO:</label><br>
-            <input class="company" type="text" id="cname" ><br>
+            <input class="company" type="text" id="cname" required><br>
             </div>
 
             <div class="question">
             <label class="label-form" for="cname">TELEFONO MOVIL:</label><br>
-            <input class="company" type="number" id="cname" ><br>
+            <input class="company" type="number" id="cname" required><br>
             </div>
 
             <div class="question">
             <label class="label-form" for="cname">EMAIL:</label><br>
-            <input class="company" type="email" id="cname" ><br>
+            <input class="company" type="email" id="cname" required><br>
             </div>
             
-            <input type="submit" value="Next">
+            <input type="submit" class="button-6" value="Next">
         </section>
     </form>
 
@@ -250,7 +251,7 @@
             
             <label class="label-input" for="j">No</label><br>
         </div>
-        <input type="submit" value="Next">
+        <input type="submit" class="button-6" value="Next">
     </form>
 
 
@@ -352,7 +353,7 @@
             
             <label class="label-input" for="j">No</label><br>
         </div>
-        <input type="submit" value="Next">
+        <input type="submit" class="button-6" value="Next">
     </form>
 
     <form name="form4" class="form4" onsubmit="validateForm(name)">
@@ -435,7 +436,7 @@
             
             <label class="label-input" for="h">No</label><br>
         </div>
-        <input type="submit" value="Next">
+        <input type="submit" class="button-6" value="Next">
     </form>
 
     <form name="form5" class="form5" onsubmit="validateForm(name)">
@@ -529,7 +530,7 @@
             
             <label class="label-input" for="j">No</label><br>
         </div>
-        <input type="submit" value="Next">
+        <input type="submit" class="button-6" value="Next">
     </form>
 
 
@@ -623,7 +624,7 @@
             
             <label class="label-input" for="j">No</label><br>
         </div>
-        <input type="submit" value="Next">
+        <input type="submit" class="button-6" value="Next">
     </form>
 
     <form name="form7" class="form7" onsubmit="validateForm(name)">
@@ -707,7 +708,7 @@
             
             <label class="label-input" for="i">No</label><br>
         </div>
-        <input type="submit" value="Next">
+        <input type="submit" class="button-6" value="Next">
     </form>
 
     <form name="form8" class="form8" onsubmit="validateForm(name)">
@@ -800,7 +801,7 @@
             
             <label class="label-input" for="j">No</label><br>
         </div>
-        <input type="submit" value="Next">
+        <input type="submit" class="button-6" value="Next">
     </form>
 
     <form name="form9" class="form9" onsubmit="validateForm(name)">
@@ -893,7 +894,7 @@
             
             <label class="label-input" for="j">No</label><br>
         </div>
-        <input type="submit" value="Next">
+        <input type="submit" class="button-6" value="Next">
     </form>
 
 
@@ -924,7 +925,7 @@
             
             <label class="label-input" for="c">No</label><br>
         </div>
-        <input type="submit" value="Next">
+        <input type="submit" class="button-6" value="Next">
     </form>
 
     <form name="form11" class="form11" onsubmit="validateForm(name)">
@@ -1018,7 +1019,7 @@
             
             <label class="label-input" for="j">No</label><br>
         </div>
-        <input type="submit" value="Next">
+        <input type="submit" class="button-6" value="Next">
     </form>
 
     <form name="form12" class="form12" onsubmit="validateForm(name)">
@@ -1112,7 +1113,7 @@
             
             <label class="label-input" for="j">No</label><br>
         </div>
-        <input type="submit" value="Submit">
+        <input type="submit" class="button-6" value="Submit">
     </form>
 
 
@@ -1138,68 +1139,83 @@
         
         <p class="parraf" id="conclusion"></p>
         
-        <h3 id="pun-amb">Puntuación Ambiental</h3>
-        <h4 id="scoreAmb" class="ScoreNumbers"></h4>
-        <div id="pos-total">
-            <section class="content">
-                    <div class="box gauge--3">
-                    <div class="mask">
-                        <div class="semi-circle"></div>
-                        <div class="semi-circle--mask"></div>
-                    </div>
-                    </div>
-            </section> 
-            <div class="item">
-                <i id="arrow2" class="fa fa-long-arrow-up arrow2" aria-hidden="true"></i>
+        <div class="flex-container">
+            <div class="row">
+                <div class="colum">
+                    <h3 id="pun-amb">Puntuación Ambiental</h3>
+                    <h4 id="scoreAmb" class="ScoreNumbers"></h4>
+                    <div id="pos-total">
+                        <section class="content">
+                                <div class="box gauge--3">
+                                <div class="mask">
+                                    <div class="semi-circle"></div>
+                                    <div class="semi-circle--mask"></div>
+                                </div>
+                                </div>
+                        </section> 
+                        <div class="item">
+                            <i id="arrow2" class="fa fa-long-arrow-up arrow2" aria-hidden="true"></i>
+                        </div>
+                </div>
             </div>
-        </div>
-        
-        
-        <h3 id="pun-amb">Puntuación Económica</h3>
-        <h4 id="scoreEco" class="ScoreNumbers"></h4>
-        <div id="pos-total">
-            <section class="content">
-                    <div class="box gauge--3">
-                    <div class="mask">
-                        <div class="semi-circle"></div>
-                        <div class="semi-circle--mask"></div>
+            
+            
+                <div class="colum">
+                    <h3 id="pun-amb">Puntuación Económica</h3>
+                    <h4 id="scoreEco" class="ScoreNumbers"></h4>
+                    <div id="pos-total">
+                        <section class="content">
+                                <div class="box gauge--3">
+                                <div class="mask">
+                                    <div class="semi-circle"></div>
+                                    <div class="semi-circle--mask"></div>
+                                </div>
+                                </div>
+                        </section> 
+                        <div class="item">
+                            <i id="arrow3" class="fa fa-long-arrow-up arrow3" aria-hidden="true"></i>
+                        </div>
                     </div>
-                    </div>
-            </section> 
-            <div class="item">
-                <i id="arrow3" class="fa fa-long-arrow-up arrow3" aria-hidden="true"></i>
+                </div>
             </div>
-        </div>
-        
-        <h3 id="pun-amb">Puntuación Social</h3>
-        <h4 id="scoreSoc" class="ScoreNumbers"></h4>
-        <div id="pos-total">
-            <section class="content">
-                    <div class="box gauge--3">
-                    <div class="mask">
-                        <div class="semi-circle"></div>
-                        <div class="semi-circle--mask"></div>
+
+            <div class="row 2">
+                <div class="colum">
+                    <h3 id="pun-amb">Puntuación Social</h3>
+                    <h4 id="scoreSoc" class="ScoreNumbers"></h4>
+                    <div id="pos-total">
+                        <section class="content">
+                                <div class="box gauge--3">
+                                <div class="mask">
+                                    <div class="semi-circle"></div>
+                                    <div class="semi-circle--mask"></div>
+                                </div>
+                                </div>
+                        </section> 
+                        <div class="item">
+                            <i id="arrow4" class="fa fa-long-arrow-up arrow4" aria-hidden="true"></i>
+                        </div>
                     </div>
+                </div>
+            
+                <div class="colum">
+                    <h3 id="pun-amb">Puntuación en Genero</h3>
+                    <h4 id="scoreGen" class="ScoreNumbers"></h4>
+                    <div id="pos-total">
+                        <section class="content">
+                                <div class="box gauge--3">
+                                <div class="mask">
+                                    <div class="semi-circle"></div>
+                                    <div class="semi-circle--mask"></div>
+                                </div>
+                                </div>
+                        </section> 
+                        <div class="item">
+                            <i id="arrow5" class="fa fa-long-arrow-up arrow5" aria-hidden="true"></i>
+                        </div>
                     </div>
-            </section> 
-            <div class="item">
-                <i id="arrow4" class="fa fa-long-arrow-up arrow4" aria-hidden="true"></i>
-            </div>
-        </div>
-        
-        <h3 id="pun-amb">Puntuación de Genero</h3>
-        <h4 id="scoreGen" class="ScoreNumbers"></h4>
-        <div id="pos-total">
-            <section class="content">
-                    <div class="box gauge--3">
-                    <div class="mask">
-                        <div class="semi-circle"></div>
-                        <div class="semi-circle--mask"></div>
-                    </div>
-                    </div>
-            </section> 
-            <div class="item">
-                <i id="arrow5" class="fa fa-long-arrow-up arrow5" aria-hidden="true"></i>
+                    
+                </div>
             </div>
         </div>
         <p class="parraf-last"></p>
@@ -1211,18 +1227,19 @@
     </div>
     <div class="container">
         <footer class="fixed-bottom d-flex flex-wrap justify-content-between align-items-center py-3 my-2 border-top p-3 mb-0 bg-light text-dark">
-          <div class="col-md-4 d-flex align-items-center">
-            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-              <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-            </a>
-            <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Inc</span>
-          </div>
-      
-          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+                </a>
+                <img src="VERDE GESTIÓN MARCA GRADIENT FONDO CLARO-04 2.png" class="LogoGrande" alt="Logo Grande" style="height: 5rem";>
+                <span class="mb-3 mb-md-0 text-muted">© 2023 Company, Inc</span>
+            </div>
+            
+          <!-- <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
             <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
             <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
             <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
-          </ul>
+          </ul> -->
           
         </footer>
       </div>
