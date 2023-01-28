@@ -46,7 +46,12 @@ function validateForm(name) {
         let email = JSON.parse(localStorage.getItem("email"));
         preguntas.push(email)
         let date = new Date();
-	    let current_date = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()+"   "+ date.getHours()+":"+date.getMinutes();
+        let current_date;
+        if(date.getMinutes()<10){
+            current_date = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()+"   "+ date.getHours()+":0"+date.getMinutes();
+        }else{
+	        current_date = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()+"   "+ date.getHours()+":"+date.getMinutes();
+        }
         preguntas.push(current_date);
         let x = document.getElementsByClassName('company')
         for(let i =0;i<x.length;i++){
