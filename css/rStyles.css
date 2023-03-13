@@ -24,6 +24,15 @@
   margin-top: 3%;
 }
 
+.bt-login{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 5%;
+}
+
+
 .radio-form {
   font-family: system-ui, sans-serif;
   font-size: 2rem;

@@ -1,6 +1,7 @@
 let formulario = document.getElementsByTagName("form")
 let section = document.getElementsByTagName("section")
 
+
 let formCount = 1;
 
 let score = 0;

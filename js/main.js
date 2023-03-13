@@ -3,6 +3,8 @@ import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'https:/
 import { addDoc, collection, doc, setDoc } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'; 
 import { loginCheck } from './loginCheck.js';
 
+let emailForm = document.querySelector("#same-email")
+let emailForm2 = document.querySelector("#same-email2")
 const logout = document.querySelector('#logout')
 const login = document.querySelector('#login-form')
 const scoreChange = document.querySelector('#scoreTotal')
@@ -21,12 +23,13 @@ login.addEventListener('submit', async (e) => {
   try {
     const userLoginCredential = await signInWithEmailAndPassword(auth,email, password)
     localStorage.setItem("email", JSON.stringify(email));
-    console.log(email);
+
+    emailForm.value = JSON.parse(localStorage.getItem("email"));
+    emailForm2.value = JSON.parse(localStorage.getItem("email"));
+
     const loginModal = document.querySelector('#LogInModal')
     const modal = bootstrap.Modal.getInstance(loginModal)
     modal.hide()
-    //puedo llamar a que se despliegue el form.html, pero tendria que hacerse la comprobacion en el form.html si enserio está logeado para ver la pagina. Porque puden entrar sino poniedo www.asdasd.com/form.html
-    //console.log(userLoginCredential);
   } catch(error){
     if (error.code === "auth/wrong-password") {
       passwordError.innerHTML = 'Wrong password';
@@ -82,6 +85,5 @@ async function sendb(){
   //   console.error("Error adding document: ", e);
   // }
 }
-
 
 
