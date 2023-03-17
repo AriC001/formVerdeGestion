@@ -67,7 +67,7 @@ function validateForm(name) {
     // console.log(scoreGenero);
     // console.log(scoreSocial);
     formulario[formCount].style.display = "none"
-    if(formCount == formulario.length-11){
+    if(formCount == formulario.length-1){
         window.scrollTo(0,0);
         formulario[formCount].style.display = "none"
         preguntas.push(scores(score,scoreAmbiental,scoreEconomico,scoreGenero,scoreSocial))

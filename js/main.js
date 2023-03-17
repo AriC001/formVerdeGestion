@@ -1,4 +1,4 @@
-import { auth, datab } from './firebase.js';
+//import { auth, datab } from './firebase.js';
 import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { addDoc, collection, doc, setDoc } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'; 
 import { loginCheck } from './loginCheck.js';
@@ -18,10 +18,10 @@ login.addEventListener('submit', async (e) => {
   emailError.innerHTML = '';
   const email = document.querySelector('#login-email').value
   const password = document.querySelector('#login-password').value
-
+  loginCheck(true)
 
   try {
-    const userLoginCredential = await signInWithEmailAndPassword(auth,email, password)
+    const userLoginCredential = true //await signInWithEmailAndPassword(auth,email, password)
     localStorage.setItem("email", JSON.stringify(email));
 
     emailForm.value = JSON.parse(localStorage.getItem("email"));
@@ -42,12 +42,13 @@ login.addEventListener('submit', async (e) => {
 }
 })
 
-onAuthStateChanged(auth, async (user) => {
-  loginCheck(user)
-})
+
+// onAuthStateChanged(auth, async (user) => {
+//   loginCheck(true); //loginCheck(user)
+// })
 
 logout.addEventListener('click', async () => {
-  await signOut(auth)
+  true; //await signOut(auth)
 })
 
 // const observer = new MutationObserver(() => {
@@ -56,7 +57,7 @@ logout.addEventListener('click', async () => {
 
 var mutationObserver = new MutationObserver(function(mutations) {
   mutations.forEach(function(mutation) {
-    sendb();
+    //sendb();
   });
 });
 

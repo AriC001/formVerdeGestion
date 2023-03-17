@@ -6,7 +6,7 @@ const resultados = document.querySelector('#allResultados')
 const btlogin = document.querySelector('#bt-login')
 
 export const loginCheck = user => {
-    if(user){
+    if(user == true){//if(user){
         login.forEach(link => link.style.display = 'none')
         logout.forEach(link => link.style.display = 'block')
         form.style.visibility = 'visible'
